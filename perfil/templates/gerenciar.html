@@ -52,6 +52,9 @@
                     <label>Banco</label>
                     <select name="banco" class="form-select">
                         <option value="NU">Nubank</option>
+                        <option value="CA">Caixa Econômica Federal</option>
+                        <option value="BS">Banco Santander</option>
+                        <option value="BB">Banco do Brasil</option>
                     </select>
                     <br>
                     <label>Tipo</label>
@@ -101,7 +104,7 @@
                         <div class="lista-contas-main">
                             <span>{{categoria}}</span>
                            
-                            <span class="total-conta"><a href="#"><img src="{% if categoria.essencial %}{% static 'perfil/img/check.png' %}{% else %}{% static 'perfil/img/exit.png' %}{% endif %}"></a></span>
+                            <span class="total-conta"><a href="{% url 'update_categoria' categoria.id %}"><img src="{% if categoria.essencial %}{% static 'perfil/img/check.png' %}{% else %}{% static 'perfil/img/exit.png' %}{% endif %}"></a></span>
                         </div>
                         <br>
                     {% endfor %}

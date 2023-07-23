@@ -28,7 +28,7 @@
                     <div class="lista-contas-main">
                         <span><img width="10%" src="{{conta.icone.url}}">&nbsp&nbsp{{conta.apelido}}</span>
                        
-                        <span class="total-conta positivo ">R$ {{conta.valor}}&nbsp&nbsp <a href="/perfil/deletar_banco/{{conta.id}}"><img src="{% static 'perfil/img/exit.png' %}"></a></span>
+                        <span class="total-conta positivo ">R$ {{conta.valor}}&nbsp&nbsp <a href="/perfil/deletar_banco/{{conta.id}}"><img src="{% static 'perfil/img/deletar.png' %}" width="32" height="32"></a></span>
                     </div>
                     <br>
                 {% endfor %}
@@ -51,6 +51,7 @@
                     <br>
                     <label>Banco</label>
                     <select name="banco" class="form-select">
+                        <option disabled selected>Selecione uma opção</option>
                         <option value="NU">Nubank</option>
                         <option value="CA">Caixa Econômica Federal</option>
                         <option value="BS">Banco Santander</option>
@@ -59,6 +60,7 @@
                     <br>
                     <label>Tipo</label>
                     <select name="tipo" class="form-select">
+                        <option disabled selected>Selecione uma opção</option>
                         <option value="pf">Pessoa física</option>
                         <option value="pj">Pessoa jurídica</option>
                     </select>

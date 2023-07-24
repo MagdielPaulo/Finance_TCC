@@ -21,16 +21,17 @@
             <h1>Faça login<br>e usufrua dos serviços</h1>
             <img src="{% static 'perfil/img/financeiro.svg' %}" class="left-login-image" alt="financeiro animação">
         </div>
+        <form action="{% url 'login' %}" method="POST">{% csrf_token %}
         <div class="right-login">
             <div class="card-login">
                 <h1>LOGIN</h1>
                 <div class="textfield">
-                    <label for="usuario">Usuário</label>
-                    <input type="text" name="usuario" placeholder="Usuário">
+                    <label for="username">Usuário</label>
+                    <input type="text" name="username" placeholder="username">
                 </div>
                 <div class="textfield">
-                    <label for="senha">Usuário</label>
-                    <input type="password" name="senha" placeholder="Senha">
+                    <label for="password">Senha</label>
+                    <input type="password" name="password" placeholder="password">
                 </div>
                 <button class="btn-login">Login</button>
             </div>

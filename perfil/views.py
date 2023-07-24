@@ -7,6 +7,7 @@ from .utils import calcula_equilibrio_financeiro, calcula_total
 from extrato.models import Valores
 from datetime import datetime
 
+
 def home(request):
     valores = Valores.objects.filter(data__month=datetime.now().month)
     entradas = valores.filter(tipo='E')

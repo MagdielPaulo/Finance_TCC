@@ -1,1 +1,63 @@
-<h1>Cadastro</h1>
+{% extends 'bases/base.html' %}
+{% load static %}
+
+{% block 'head' %}
+
+<link href="{% static 'perfil/css/cadastrar.css' %}" rel = "stylesheet">
+
+{% endblock %}
+
+{% block 'body' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+</head>
+<body>
+    <main>
+        <h1>Faça seu cadastro</h1>
+        <div class="social-media">
+            <a href="#">
+                <img src="{% static 'perfil/img/google.png' %}" alt="Google">
+            </a>
+            <a href="#">
+                <img src="{% static 'perfil/img/facebook.png' %}" alt="Facebook">
+            </a>
+            <a href="#">
+                <img src="{% static 'perfil/img/linkedin.png' %}" alt="Linkedin">
+            </a>
+        </div>
+
+        <div class="alternative">
+            <span>OR</span>
+        </div>
+
+        <form action="{% url 'cadastro' %}" method="POST">{% csrf_token %}
+            <label for="Nome">
+                <span>Nome</span>
+                <input type="text" placeholder="username" name="username">
+            </label>
+
+            <label for="E-mail">
+                <span>E-mail</span>
+                <input type="email" placeholder="email" name="email">
+            </label>
+
+            <label for="Senha">
+                <span>Senha</span>
+                <input type="password" placeholder="password" name="password">
+            </label>
+
+            <input type="submit" value="Cadastrar" id="button">
+        </form>
+    </main>
+    <section class="images">
+        <img src="{% static 'perfil/img/mobile.svg' %}" alt="Mobile">
+        <div class="circle"></div>
+    </section>
+    
+</body>
+</html>
+{% endblock %}

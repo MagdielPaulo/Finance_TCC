@@ -20,6 +20,7 @@ body {
 }
 
 .left-login > h1 {
+    font-size: 3vw;
     color: #77ffc0;
 }
 
@@ -50,7 +51,7 @@ body {
 }
 
 .left-login-image{
-    width: 35vw;
+    width: 30vw;
 }
 
 .textfield{
@@ -97,4 +98,10 @@ body {
     color: #2b134b;
     cursor: pointer;
     box-shadow: 0px 10px 40px -12px #00ff8052;
+}
+
+@media only screen and (max-width: 950px){
+    .card-login{
+        width: 85%;
+    }
 }

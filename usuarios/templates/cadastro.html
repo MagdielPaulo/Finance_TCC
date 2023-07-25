@@ -1,29 +1,56 @@
+{% load static %}
+
+{% block 'head' %}
+
+    <link href="{% static 'perfil/css/cadastro.css' %}" rel="stylesheet">
+
+{% endblock %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro de usuários</title>
+    <title>Finance_cadastro_TCC</title>
 </head>
 <body>
+    <main>
+        <h1>Faça seu cadastro</h1>
+        <div class="social-media">
+            <a href="#">
+                <img src="{% static 'perfil/img/google.png' %}" alt="Google">
+            </a>
+            <a href="#">
+                <img src="{% static 'perfil/img/facebook.png' %}" alt="Facebook">
+            </a>
+            <a href="#">
+                <img src="{% static 'perfil/img/linkedin.png' %}" alt="Linkedin">
+            </a>
+        </div>
+
+        <div class="alternative">
+            <span>OU</span>
+        </div>
 
 <form method="post">
     {% csrf_token %}
 
     <div class="form-group">
         {{form_usuario.username.errors}}
-        <label>Username: </label>
+        <label = Usuário>
+            <span>Usuário</span>
         {{form_usuario.username}}
     </div>
 
     <div class="form-group">
         {{form_usuario.password1.errors}}
-        <label>Senha: </label>
+        <label for="password">
+            <span>Senha</span>
         {{form_usuario.password1}}
     </div>
 
     <div class="form-group">
         {{form_usuario.password2.errors}}
-        <label>Confirmação de senha: </label>
+        <label for="password">
+            <span>Confirme sua senha</span>
         {{form_usuario.password2}}
     </div>
 
@@ -31,6 +58,10 @@
         <input type="submit" value="Cadastrar" class="btn btn-primary">
     </div>
 </form>
-
+</main>
+<section class="images">
+    <img src="{% static 'perfil/img/mobile.svg' %}" alt="Mobile">
+    <div class="circle"></div>
+</section>
 </body>
 </html>

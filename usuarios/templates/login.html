@@ -1,28 +1,59 @@
+{% load static %}
+
+{% block 'head' %}
+
+    <link href="{% static 'perfil/css/cadastro.css' %}" rel="stylesheet">
+
+{% endblock %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Finance_login_TCC</title>
 </head>
 <body>
+    <main>
+        <h1>LOGIN</h1>
+        <div class="social-media">
+            <a href="#">
+                <img src="{% static 'perfil/img/google.png' %}" alt="Google">
+            </a>
+            <a href="#">
+                <img src="{% static 'perfil/img/facebook.png' %}" alt="Facebook">
+            </a>
+            <a href="#">
+                <img src="{% static 'perfil/img/linkedin.png' %}" alt="Linkedin">
+            </a>
+        </div>
+
+        <div class="alternative">
+            <span>OU</span>
+        </div>
+
 <form method="post">
     {% csrf_token %}
+    
 
     <div class="form-group">
         {{form_login.username.errors}}
-        <label>Username: </label>
+        <label for="name">
+            <span>Usuário</span>
         {{form_login.username}}
     </div>
 
     <div class="form-group">
         {{form_login.password.errors}}
-        <label>Senha: </label>
+        <label for="password">
+            <span>Senha</span>
         {{form_login.password}}
     </div>
 
     <div class="form-group">
-        <input type="submit" value="Enviar" class="btn btn-primary">
+        <input type="submit" value="Entrar" class="btn btn-primary">
     </div>
 </form>
+</main>
+<section class="images">
+    <img src="{% static 'perfil/img/financeiro.svg' %}" alt="Mobile">
 </body>
 </html>

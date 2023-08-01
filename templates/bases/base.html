@@ -4,52 +4,98 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link href="{% static 'geral/css/base.css' %}" rel="stylesheet">
+    <link href="{% static 'geral/css/style.css' %}" rel="stylesheet">
     <title>{% block 'title' %}{% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     {% block 'head' %}{% endblock %}
-  
-    <style>
-        /* Cor da caixa suspensa */
-        .dropdown-menu {
-          background-color: #f8f8f8; /* Tom de cinza claro */
-          border: none;
-        }
-        
-        /* Transição para aparecer suavemente */
-        .dropdown-menu {
-            display: none;
-        }
-        
-        .dropdown:hover .dropdown-menu,
-        .dropdown.show .dropdown-menu {
-            display: block;
-        }
-    </style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #201F1F;">
-        <div class="container">
-            <a class="navbar-brand" style="margin-left: 30px" href="{% url 'home' %}">PROJECTO_TCC</a>
-            {% if user.is_authenticated %}
-                <div class="dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Bem-vindo: {{ user.username }}
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="userDropdown">
-                        <form action="{% url 'logout' %}" method="post">
-                            {% csrf_token %}
-                            <button type="submit" class="dropdown-item">Sair</button>
-                        </form>
-                    </div>
-                </div>
-            {% endif %}
-        </div>
-    </nav>
+    <div class="sidebar">
+      <div class="logo-details">
+        <i class=''></i>
+          <div class="logo_name">Finance_TCC</div>
+          <i class='bx bx-menu' id="btn" ></i>
+      </div>
+      <ul class="nav-list">
+        <li>
+            <i class='bx bx-search' ></i>
+           <input type="text" placeholder="Pesquisar...">
+           <span class="tooltip">Pesquisar</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-grid-alt'></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+           <span class="tooltip">Dashboard</span>
+        </li>
+        <li>
+         <a href="#">
+           <i class='bx bx-user' ></i>
+           <span class="links_name">Usuário</span>
+         </a>
+         <span class="tooltip">Usuário</span>
+       </li>
+       <li>
+         <a href="#">
+           <i class='bx bx-chat' ></i>
+           <span class="links_name">Notificações</span>
+         </a>
+         <span class="tooltip">Notificações</span>
+       </li>
+       <li>
+         <a href="#">
+           <i class='bx bx-cog' ></i>
+           <span class="links_name">Configurações</span>
+         </a>
+         <span class="tooltip">Configurações</span>
+       </li>
+       <li class="profile">
+           <div class="profile-details">
+             <img src="profile.jpg" alt="profileImg">
+             <div class="name_job">
+               <div class="name">{{id.usuarios}}</div>
+               <div class="job">{{usuarios}}</div>
+             </div>
+           </div>
+           <i class='bx bx-log-out' id="log_out" ></i>
+       </li>
+      </ul>
+    </div>
+    <script>
+    let sidebar = document.querySelector(".sidebar");
+    let closeBtn = document.querySelector("#btn");
+    let searchBtn = document.querySelector(".bx-search");
+  
+    closeBtn.addEventListener("click", ()=>{
+      sidebar.classList.toggle("open");
+      menuBtnChange();
+    });
+  
+    searchBtn.addEventListener("click", ()=>{ 
+      sidebar.classList.toggle("open");
+      menuBtnChange(); 
+    });
+  
+   
+    function menuBtnChange() {
+     if(sidebar.classList.contains("open")){
+       closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+     }else {
+       closeBtn.classList.replace("bx-menu-alt-right","bx-menu");
+     }
+    }
+    </script>
     {% block 'body' %}{% endblock %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
+
+
+
+
+
 
 

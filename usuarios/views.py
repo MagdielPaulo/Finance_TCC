@@ -21,7 +21,7 @@ def logar_usuario(request):
         usuario = authenticate(request, username=username, password=password)
         if usuario is not None:
             login(request, usuario)
-            return redirect('index')
+            return redirect('home')
         else:
             form_login = AuthenticationForm()
     else:

@@ -11,3 +11,17 @@ body{
     --differential-color: #E96363;
 
 }
+.nav-list {
+    list-style: none; /* Remover os marcadores de lista */
+    padding: 0;
+}
+  
+.nav-list li {
+    display: flex; 
+    align-items: center; 
+    padding: 0px; /* ACHEI MEXEU aqui é jogo*/
+} 
+  /* icone cor ao passar o mouse por cima*/
+.nav-list li:hover i {
+    color: #1ddada;
+}

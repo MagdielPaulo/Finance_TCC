@@ -7,6 +7,11 @@ from .utils import calcula_equilibrio_financeiro, calcula_total
 from extrato.models import Valores
 from datetime import datetime
 
+def calcula_total(queryset, field_name):
+    total = 0
+    for obj in queryset:
+        total += getattr(obj, field_name)
+    return total
 
 def home(request):
     valores = Valores.objects.filter(data__month=datetime.now().month)
@@ -20,7 +25,8 @@ def home(request):
     
     saldo_total = calcula_total(contas, 'valor')
     percentual_gastos_essenciais, percentual_gastos_nao_essenciais = calcula_equilibrio_financeiro()
-    return render(request, 'home.html', {'contas': contas, 'saldo_total': saldo_total, 'total_entradas': total_entradas, 'total_saidas': total_saidas, 'percentual_gastos_essenciais': int(percentual_gastos_essenciais), 'percentual_gastos_nao_essenciais': int(percentual_gastos_nao_essenciais)})
+    total_livre = saldo_total - total_saidas
+    return render(request, 'home.html', {'contas': contas, 'saldo_total': saldo_total, 'total_entradas': total_entradas, 'total_saidas': total_saidas, 'total_livre': total_livre, 'percentual_gastos_essenciais': int(percentual_gastos_essenciais), 'percentual_gastos_nao_essenciais': int(percentual_gastos_nao_essenciais)})
 
 def gerenciar(request):
     contas = Conta.objects.all()

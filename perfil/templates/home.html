@@ -84,14 +84,14 @@
                             <div class="saldo">
                                 <span class="fonte-destaque">Saldo mensal</span>
                                 <br>
-                                <span class="font-light">R$ 0.000,00</span>
+                                <span class="font-light">R$ {{saldo_total}}</span>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="despesa">
                                 <span class="fonte-destaque">Despesa mensal</span>
                                 <br>
-                                <span class="font-light">R$ 0.000,00</span>
+                                <span class="font-light">R$ {{total_saidas}}</span>
                             </div>
 
                         </div>
@@ -99,7 +99,7 @@
                     </div>
                     <hr class="hr-borda">
                     <span class="fonte-destaque">Total livre</span>
-                    <span class="font-light negativo">R$ 0.000,00</span>
+                    <span class="font-light negativo">R$ {{total_livre}}</span>
                     <hr class="hr-borda">
                     <a href="{% url 'view_extrato' %}" class="botao-principal">Gerenciar dados mensais</a>
                 </div>
@@ -151,7 +151,12 @@
                     <hr class="hr-borda">
 
                     <span class="fonte-destaque">Próximas do vencimento</span>
-                    <span class="fonte-light">3 contas próximas do vencimento</span>
+                    {% if not contas_proximas_vencimento %}
+                    <span class="fonte-light">Nenhuma conta próxima do vencimento</span>
+                    {% else %}
+                    {% for conta in contas_proximas_vencimento %}
+                    {% endfor %}
+                    {% endif %}
                     <br>
                     <span class="fonte-destaque negativo">Vencidas</span>
                     <span class="fonte-light">0 contas vencidas</span>

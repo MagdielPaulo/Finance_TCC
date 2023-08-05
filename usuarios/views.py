@@ -44,7 +44,7 @@ def alterar_senha(request):
         if form_senha.is_valid():
             user = form_senha.save()
             update_session_auth_hash(request, user)
-            return redirect('index')
+            return redirect('logar_usuario')
     else:
         form_senha = PasswordChangeForm(request.user)
     return render(request, 'alterar_senha.html', {'form_senha': form_senha})

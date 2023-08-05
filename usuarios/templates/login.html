@@ -10,6 +10,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Finance_login_TCC</title>
+    <style>
+        .registration-message {
+            margin-top: 20px;
+            border: 2px solid #fff;
+            padding: 5px 10px;
+        }
+    </style>
 </head>
 <body>
     <main>
@@ -52,6 +59,9 @@
         <input type="submit" value="Entrar" class="btn btn-primary">
     </div>
 </form>
+<div class="registration-message">
+    <p>Não tem uma conta? <a href="{% url 'cadastrar_usuario' %}">Cadastre-se</a></p>
+</div>
 </main>
 <section class="images">
     <img src="{% static 'perfil/img/financeiro.svg' %}" alt="Mobile">

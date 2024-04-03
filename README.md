@@ -6,7 +6,7 @@
 </head>
 
 <body>
-  <h1>Gerenciamento de Finanças - Em Desenvolvimento</h1>
+  <h1>Gerenciamento de Finanças</h1>
   <p><strong>⚠️Este projeto está em desenvolvimento. As funcionalidades e telas estão sujeitas a alterações.</strong></p>
 
   <p>Este é um projeto de gerenciamento de finanças desenvolvido em Python utilizando o framework Django, HTML, CSS e JavaScript. O projeto utiliza o banco de dados SQLite e como IDE recomendada é o Visual Studio Code. O Figma foi utilizado para criar as telas do sistema.</p>
